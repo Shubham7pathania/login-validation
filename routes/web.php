@@ -15,5 +15,3 @@ Route::post('/user-registration', [UserController::class, 'store'])->name('user.
 Route::post('/user-login', [LoginController::class, 'login'])->name('user.login');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// this is for testing
