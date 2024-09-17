@@ -18,32 +18,31 @@
 
 
 @if (auth()->user())
-    <div class="container text-start">
-        <h3 class="mt-4 mb-4">Your details</h3>
-        <table class="table table-success">
-            <thead>
-                <tr>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Hobbies</th>
-                    <th>gender</th>
-                    <th>address</th>
-                    <th>Company</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($users as $user)
-                <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->user_details->hobbies ?? '-'  }}</td>
-                    <td>{{ $user->user_details->gender ?? '-'  }}</td>
-                    <td>{{ $user->address }}</td>
-                    <td>{{ $user->user_details->company ?? '-'  }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <div class="container">
+
+        <div class="container-fluid d-flex align-items-center justify-content-center mt-4">
+            <form action="#" method="post" class="w-75">
+                @csrf
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" value="{{ auth()->user()->name }}" name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" value="{{ auth()->user()->email }}" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone no</label>
+                  <input type="number" class="form-control" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" value="{{ auth()->user()->address }}" name="address">
+                </div>
+                <button type="submit" class="btn btn-dark">Pay now</button>
+              </form>
+
+        </div>
     </div>
 @endif
 
