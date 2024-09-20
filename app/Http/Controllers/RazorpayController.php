@@ -36,7 +36,7 @@ class RazorpayController extends Controller
 
         $razorpayOrder = $this->api->order->create($orderData);
 
-        // dd($razorpayOrder);
+        //  dd($razorpayOrder);
 
         return view('order_details', compact('orderid','razorpayOrder'));
     }
