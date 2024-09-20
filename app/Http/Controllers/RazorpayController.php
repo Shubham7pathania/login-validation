@@ -24,7 +24,6 @@ class RazorpayController extends Controller
         ]);
 
         $orderid = rand(111111,999999);
-
         $orderData = [
             'receipt' => 'rcptid_11',
             'amount' => $request->get('amount') * 100,
